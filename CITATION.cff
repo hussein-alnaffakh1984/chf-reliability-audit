@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code or our findings, please cite the paper below."
+title: "CHF Reliability Audit"
+authors:
+  - family-names: "[Author 1 Family]"
+    given-names: "[Author 1 Given]"
+    affiliation: "[Institution]"
+  - family-names: "[Author 2 Family]"
+    given-names: "[Author 2 Given]"
+    affiliation: "[Institution]"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "[Author 1 Family]"
+      given-names: "[Author 1 Given]"
+    - family-names: "[Supervising Author]"
+      given-names: "[Author Given]"
+  doi: "10.xxxx/annucene.2026.xxxxx"
+  journal: "Annals of Nuclear Energy"
+  title: "Reliability of Machine Learning Predictions for Critical Heat Flux"
+  year: 2026
