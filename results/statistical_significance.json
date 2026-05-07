@@ -1,0 +1,231 @@
+{
+  "methodology": {
+    "tests_performed": [
+      "Bootstrap 95% CI for R\u00b2 (10,000 iterations)",
+      "Levene's test for variance equality (variance amplification)",
+      "Welch's t-test for physics ablation (baseline vs physics)",
+      "Pairwise Welch t-test for model comparison on S3",
+      "Permutation test for physics ablation (non-parametric)"
+    ],
+    "n_seeds": 5,
+    "significance_threshold": 0.05
+  },
+  "test_1_bootstrap_CI": {
+    "RF": {
+      "S1_random": {
+        "mean": 0.9825272782264285,
+        "std": 0.001046772794822761,
+        "ci_95_lower": 0.9816093783440454,
+        "ci_95_upper": 0.9834266704429968,
+        "n": 5
+      },
+      "S2_holdout_refs": {
+        "mean": 0.8860117572161033,
+        "std": 0.0606452494452693,
+        "ci_95_lower": 0.8262108168570238,
+        "ci_95_upper": 0.9273412309394106,
+        "n": 5
+      },
+      "S3_high_P": {
+        "mean": 0.5987467311903873,
+        "std": 0.003991547888140478,
+        "ci_95_lower": 0.5950994014382248,
+        "ci_95_upper": 0.6017644165667856,
+        "n": 5
+      }
+    },
+    "XGB": {
+      "S1_random": {
+        "mean": 0.9860184550285339,
+        "std": 0.0008812604396187616,
+        "ci_95_lower": 0.9853431105613708,
+        "ci_95_upper": 0.9868858456611633,
+        "n": 5
+      },
+      "S2_holdout_refs": {
+        "mean": 0.9048730373382569,
+        "std": 0.04354807527145339,
+        "ci_95_lower": 0.8659150242805481,
+        "ci_95_upper": 0.9410903930664063,
+        "n": 5
+      },
+      "S3_high_P": {
+        "mean": 0.6478662490844727,
+        "std": 0.009071382519451469,
+        "ci_95_lower": 0.6402083039283752,
+        "ci_95_upper": 0.6556310296058655,
+        "n": 5
+      }
+    },
+    "MLP": {
+      "S1_random": {
+        "mean": 0.9723054051399231,
+        "std": 0.001446802488353536,
+        "ci_95_lower": 0.9710269570350647,
+        "ci_95_upper": 0.9735838532447815,
+        "n": 5
+      },
+      "S2_holdout_refs": {
+        "mean": 0.9290578722953796,
+        "std": 0.02345169935751691,
+        "ci_95_lower": 0.9064008355140686,
+        "ci_95_upper": 0.9463489055633545,
+        "n": 5
+      },
+      "S3_high_P": {
+        "mean": 0.5422574877738953,
+        "std": 0.22734601027565268,
+        "ci_95_lower": 0.33240690231323244,
+        "ci_95_upper": 0.7209308743476868,
+        "n": 5
+      }
+    },
+    "BNN": {
+      "S1_random": {
+        "mean": 0.9697167754173279,
+        "std": 0.0017663883727998262,
+        "ci_95_lower": 0.9680442571640014,
+        "ci_95_upper": 0.9712175011634827,
+        "n": 5
+      },
+      "S2_holdout_refs": {
+        "mean": 0.9245174765586853,
+        "std": 0.031169632865646026,
+        "ci_95_lower": 0.8933987855911255,
+        "ci_95_upper": 0.9457654356956482,
+        "n": 5
+      },
+      "S3_high_P": {
+        "mean": 0.5806477904319763,
+        "std": 0.1915029995270213,
+        "ci_95_lower": 0.3909257650375366,
+        "ci_95_upper": 0.7180410504341126,
+        "n": 5
+      }
+    }
+  },
+  "test_2_variance_amplification_levene": {
+    "RF": {
+      "s1_std": 0.001046772794822761,
+      "s3_std": 0.003991547888140478,
+      "amplification_factor": 3.8131941409657326,
+      "levene_W": 1.7351450445042622,
+      "p_value": 0.2242306323552639,
+      "significant_at_0.05": false
+    },
+    "XGB": {
+      "s1_std": 0.0008812604396187616,
+      "s3_std": 0.009071382519451469,
+      "amplification_factor": 10.29364545556567,
+      "levene_W": 8.173636492340975,
+      "p_value": 0.021185332013326237,
+      "significant_at_0.05": true
+    },
+    "MLP": {
+      "s1_std": 0.001446802488353536,
+      "s3_std": 0.22734601027565268,
+      "amplification_factor": 157.13686706080583,
+      "levene_W": 3.8086752183701345,
+      "p_value": 0.08677969968404109,
+      "significant_at_0.05": false
+    },
+    "BNN": {
+      "s1_std": 0.0017663883727998262,
+      "s3_std": 0.1915029995270213,
+      "amplification_factor": 108.4150023154184,
+      "levene_W": 2.6670064304579717,
+      "p_value": 0.14109123693904235,
+      "significant_at_0.05": false
+    }
+  },
+  "test_3_physics_ablation_welch": {
+    "S1_random": {
+      "delta_R2_mean": -0.00012793540954592064,
+      "t_statistic": -0.21694200486809045,
+      "p_value": 0.8337560508051239,
+      "cohens_d": -0.13720617110930045,
+      "effect_size": "negligible",
+      "significant_at_0.05": false
+    },
+    "S2_holdout_refs": {
+      "delta_R2_mean": 0.0008995413780211736,
+      "t_statistic": 0.029536733067170896,
+      "p_value": 0.9771604378973026,
+      "cohens_d": 0.018680670226534236,
+      "effect_size": "negligible",
+      "significant_at_0.05": false
+    },
+    "S3_high_P": {
+      "delta_R2_mean": 0.00029866695404057175,
+      "t_statistic": 0.027284532774210755,
+      "p_value": 0.9791805196094722,
+      "cohens_d": 0.017256253692003728,
+      "effect_size": "negligible",
+      "significant_at_0.05": false
+    }
+  },
+  "test_4_pairwise_S3_comparison": {
+    "RF vs XGB": {
+      "delta_R2_mean": -0.04911951789408531,
+      "t_statistic": -9.91239824787258,
+      "p_value": 0.00010375492770218194,
+      "cohens_d": -6.26915110758793,
+      "effect_size": "large"
+    },
+    "RF vs MLP": {
+      "delta_R2_mean": 0.056489243416492085,
+      "t_statistic": 0.4968685296645838,
+      "p_value": 0.6453349178053616,
+      "cohens_d": 0.3142472502798046,
+      "effect_size": "small"
+    },
+    "RF vs BNN": {
+      "delta_R2_mean": 0.01809894075841101,
+      "t_statistic": 0.18897887360655544,
+      "p_value": 0.8593029873509823,
+      "cohens_d": 0.11952073404995878,
+      "effect_size": "negligible"
+    },
+    "XGB vs MLP": {
+      "delta_R2_mean": 0.10560876131057739,
+      "t_statistic": 0.9283188317700092,
+      "p_value": 0.40563267383615714,
+      "cohens_d": 0.5871203806439816,
+      "effect_size": "medium"
+    },
+    "XGB vs BNN": {
+      "delta_R2_mean": 0.06721845865249632,
+      "t_statistic": 0.7012231775300702,
+      "p_value": 0.5216508417430586,
+      "cohens_d": 0.44349247781912526,
+      "effect_size": "small"
+    },
+    "MLP vs BNN": {
+      "delta_R2_mean": -0.03839030265808108,
+      "t_statistic": -0.25830014104936383,
+      "p_value": 0.8028804576176313,
+      "cohens_d": -0.16336335313174893,
+      "effect_size": "negligible"
+    }
+  },
+  "test_5_physics_ablation_permutation": {
+    "S1_random": {
+      "observed_delta": -0.00012793540954592064,
+      "permutation_p_value": 0.8709,
+      "n_permutations": 10000,
+      "significant_at_0.05": false
+    },
+    "S2_holdout_refs": {
+      "observed_delta": 0.0008995413780211736,
+      "permutation_p_value": 0.9384,
+      "n_permutations": 10000,
+      "significant_at_0.05": false
+    },
+    "S3_high_P": {
+      "observed_delta": 0.00029866695404057175,
+      "permutation_p_value": 1.0,
+      "n_permutations": 10000,
+      "significant_at_0.05": false
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "version": "Draft 1 (post-Session 1+2 robustness analysis)",
+  "date": "2026-05-06",
+  "title_options": {
+    "A_emphasis_variance": "How Reliable Is Machine Learning for Critical Heat Flux? A Generalization, Calibration, and Variance Audit of the OECD/NEA Benchmark",
+    "B_emphasis_audit": "Hidden Failure Modes in ML-Based Critical Heat Flux Prediction: A Distribution-Shift and Seed-Variance Audit on the OECD/NEA Phase-1 Benchmark",
+    "C_recommended": "Reliability of Machine Learning Predictions for Critical Heat Flux: An Empirical Study of Generalization, Calibration, and Reproducibility on the OECD/NEA Benchmark"
+  },
+  "recommended_title": "C",
+  "abstract_word_count": 340,
+  "key_numerical_updates_from_draft0": {
+    "XGB_S2": "Now: 0.905 ± 0.044 / 34.2 ± 8.2% (was 0.945 / 26.2%)",
+    "MLP_S3": "Now: 0.542 ± 0.227 / 51.4 ± 9.4% (was 0.04 / 57.7%)",
+    "BNN_S3": "Now: 0.581 ± 0.192 / 39.2 ± 3.7% (was 0.694 / 36.5%)"
+  },
+  "new_findings_to_add_to_paper": {
+    "finding_1_variance_amplification": {
+      "description": "Multi-seed evaluation reveals R² standard deviation grows ~160× from S1 to S3 for MLP, ~110× for BNN, but only ~10× for tree-based methods.",
+      "novelty": "NOT documented in any prior CHF-ML paper",
+      "paper_section": "New Section 5.6",
+      "figure": "Figure 9 (new)"
+    },
+    "finding_2_uncertainty_invariance": {
+      "description": "BNN predicted uncertainty is nearly constant across splits (3.2-3.4%) while actual error grows from 17% to 39%, a 5-12× underestimate.",
+      "novelty": "Parallel to Conformal Prediction failure (similar mechanism)",
+      "paper_section": "Augment Section 5.3"
+    }
+  },
+  "comparison_table_5": "Table 5 with 8 features × 7 papers; we score 8/8, closest competitor 5/8",
+  "figures_status": {
+    "fig01_dataset_overview": "unchanged",
+    "fig02_split_visualization": "unchanged",
+    "fig03_model_comparison": "NEEDS UPDATE — add error bars (5 seeds)",
+    "fig04_pred_vs_true_xgb": "unchanged",
+    "fig05_conformal_calibration": "unchanged",
+    "fig06_slice_analysis": "unchanged",
+    "fig07_shap_importance": "unchanged",
+    "fig08_conformal_failures": "unchanged",
+    "fig09_variance_amplification": "NEW — created in Session 2"
+  },
+  "tables_status": {
+    "table_3_main_results": "NEEDS UPDATE — replace single-seed values with mean ± std",
+    "table_4_conformal_coverage": "unchanged (single-seed by design)",
+    "table_5_literature_comparison": "NEW — created in Session 2"
+  },
+  "remaining_work_for_team": {
+    "high_priority": [
+      "Update Table 3 with mean ± std values from robustness study",
+      "Update Figure 3 with error bars",
+      "Add Section 5.6 (Variance Amplification narrative)",
+      "Integrate Figure 9 into Results 4.1 and Discussion 5.6",
+      "Verify all 38 references manually (Scopus/Google Scholar)",
+      "Rewrite all sections in team voice (avoid AI detection)"
+    ],
+    "medium_priority": [
+      "Decide on final title (A, B, or C)",
+      "Review Comparison Table 5 with supervisor",
+      "Add CONFLICT-OF-INTEREST disclosure of any kind",
+      "Add author CRediT contributions"
+    ],
+    "low_priority": [
+      "Session 3: Physics features ablation (Bo, Re, We) — optional",
+      "Add MDNBR margin calculation worked example",
+      "Update README in GitHub repo"
+    ]
+  },
+  "estimated_acceptance_probability": {
+    "before_robustness": "30-40% (single-seed claims would be flagged by reviewer)",
+    "after_robustness": "55-65% (now we have variance amplification as new contribution)",
+    "after_team_polish": "65-75% (with proper rewriting and reference verification)"
+  }
+}

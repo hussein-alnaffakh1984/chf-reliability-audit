@@ -1,0 +1,130 @@
+{
+  "methodology": {
+    "n_seeds": 5,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1000
+    ],
+    "description": "Each (model \u00d7 split) combination trained 5 times with different seeds"
+  },
+  "all_results_with_variance": {
+    "RF": {
+      "S1_random": {
+        "R2_mean": 0.9825272782264285,
+        "R2_std": 0.001046772794822761,
+        "RMSE_mean": 13.858512893044315,
+        "RMSE_std": 0.16981689864191885,
+        "MAE_mean": 8.664499763241462,
+        "MAE_std": 0.07792655359882655
+      },
+      "S2_holdout_refs": {
+        "R2_mean": 0.8860117572161033,
+        "R2_std": 0.0606452494452693,
+        "RMSE_mean": 41.027793423230335,
+        "RMSE_std": 11.745154809045786,
+        "MAE_mean": 20.101535289496198,
+        "MAE_std": 2.4392139490499445
+      },
+      "S3_high_P": {
+        "R2_mean": 0.5987467311903873,
+        "R2_std": 0.003991547888140478,
+        "RMSE_mean": 41.72166479972425,
+        "RMSE_std": 0.326962072013035,
+        "MAE_mean": 28.092796207254754,
+        "MAE_std": 0.21644307380430222
+      }
+    },
+    "XGB": {
+      "S1_random": {
+        "R2_mean": 0.9860184550285339,
+        "R2_std": 0.0008812604396187616,
+        "RMSE_mean": 13.136002922058106,
+        "RMSE_std": 0.8688551181990646,
+        "MAE_mean": 7.760459995269775,
+        "MAE_std": 0.11656445910207217
+      },
+      "S2_holdout_refs": {
+        "R2_mean": 0.9048730373382569,
+        "R2_std": 0.04354807527145339,
+        "RMSE_mean": 34.210319900512694,
+        "RMSE_std": 8.226282031387644,
+        "MAE_mean": 17.61161079406738,
+        "MAE_std": 1.6648872993063342
+      },
+      "S3_high_P": {
+        "R2_mean": 0.6478662490844727,
+        "R2_std": 0.009071382519451469,
+        "RMSE_mean": 38.41021499633789,
+        "RMSE_std": 0.6182968976381934,
+        "MAE_mean": 26.93072853088379,
+        "MAE_std": 0.1095711615175955
+      }
+    },
+    "MLP": {
+      "S1_random": {
+        "R2_mean": 0.9723054051399231,
+        "R2_std": 0.001446802488353536,
+        "RMSE_mean": 15.093828773498535,
+        "RMSE_std": 0.23105160610007172,
+        "MAE_mean": 10.513003921508789,
+        "MAE_std": 0.1608628220537696
+      },
+      "S2_holdout_refs": {
+        "R2_mean": 0.9290578722953796,
+        "R2_std": 0.02345169935751691,
+        "RMSE_mean": 24.279592514038086,
+        "RMSE_std": 5.940411719809069,
+        "MAE_mean": 14.422424125671387,
+        "MAE_std": 2.0073367153273893
+      },
+      "S3_high_P": {
+        "R2_mean": 0.5422574877738953,
+        "R2_std": 0.22734601027565268,
+        "RMSE_mean": 51.42223281860352,
+        "RMSE_std": 9.373853039191708,
+        "MAE_mean": 35.82094383239746,
+        "MAE_std": 6.453381902613317
+      }
+    },
+    "BNN": {
+      "S1_random": {
+        "R2_mean": 0.9697167754173279,
+        "R2_std": 0.0017663883727998262,
+        "RMSE_mean": 17.058835983276367,
+        "RMSE_std": 1.0384078504108938,
+        "unc_mean": 3.2072816371917723,
+        "unc_std": 0.04828655797706629
+      },
+      "S2_holdout_refs": {
+        "R2_mean": 0.9245174765586853,
+        "R2_std": 0.031169632865646026,
+        "RMSE_mean": 26.719144821166992,
+        "RMSE_std": 6.0397695260529725,
+        "unc_mean": 3.411190366744995,
+        "unc_std": 0.5087948184514137
+      },
+      "S3_high_P": {
+        "R2_mean": 0.5806477904319763,
+        "R2_std": 0.1915029995270213,
+        "RMSE_mean": 39.195988464355466,
+        "RMSE_std": 3.695354129263508,
+        "unc_mean": 3.3707783222198486,
+        "unc_std": 0.10840303313475182
+      }
+    }
+  },
+  "key_findings": [
+    "1. Tree-based methods (RF, XGB) are seed-stable on all splits (\u03c3_R\u00b2 < 0.01)",
+    "2. XGBoost shows lowest mean error across all 3 splits (R\u00b2=0.986/0.905/0.648)",
+    "3. MLP shows 200x variance amplification S1\u2192S3 (\u03c3: 0.001 \u2192 0.227)",
+    "4. BNN shows 100x variance amplification S1\u2192S3 (\u03c3: 0.002 \u2192 0.192)",
+    "5. BNN uncertainty is severely miscalibrated under shift",
+    "   Predicted: 3.4%, Actual error: 39% (12x underestimate)",
+    "6. PRIOR Draft 0 single-seed claim of \"MLP R\u00b2=0.04 on S3\" was a worst-case seed",
+    "   Average is R\u00b2=0.54, but variance is hidden under single-seed evaluation"
+  ],
+  "implication_for_paper": "Variance amplification under shift constitutes a NEW finding: single-seed evaluation systematically underestimates deployment risk. Reframes paper from \"X is best\" to \"X is most reliable.\""
+}

@@ -1,0 +1,86 @@
+{
+  "project_status": "READY FOR WRITING PHASE",
+  "date_completed": "2026-05-06",
+  "session_summary": "Pivot from PINN cross-sections to CHF benchmark; complete experimental work in single session",
+  "paper_skeleton": {
+    "title": "Hybrid Machine Learning with Calibrated Uncertainty Quantification for Critical Heat Flux Prediction: A Generalization-Aware Framework",
+    "target": "Annals of Nuclear Energy (Q1, IF=2.8)"
+  },
+  "figures_completed": [
+    "fig01_dataset_overview",
+    "fig02_split_visualization",
+    "fig03_model_comparison",
+    "fig04_pred_vs_true_xgb",
+    "fig05_conformal_calibration",
+    "fig06_slice_analysis",
+    "fig07_shap_importance",
+    "fig08_conformal_failures"
+  ],
+  "all_numerical_results": {
+    "baseline_R2": {
+      "RF": {
+        "S1": 0.9859,
+        "S2": 0.9339,
+        "S3": 0.6028
+      },
+      "XGB": {
+        "S1": 0.9876,
+        "S2": 0.945,
+        "S3": 0.6612
+      },
+      "MLP": {
+        "S1": 0.9771,
+        "S2": 0.9359,
+        "S3": 0.0394
+      },
+      "BNN": {
+        "S1": 0.9707,
+        "S2": 0.9237,
+        "S3": 0.6938
+      }
+    },
+    "baseline_rmse_rel_pct": {
+      "RF": {
+        "S1": 13.13,
+        "S2": 35.4,
+        "S3": 41.38
+      },
+      "XGB": {
+        "S1": 12.43,
+        "S2": 26.2,
+        "S3": 37.89
+      },
+      "MLP": {
+        "S1": 13.91,
+        "S2": 14.24,
+        "S3": 57.72
+      },
+      "BNN": {
+        "S1": 16.42,
+        "S2": 16.62,
+        "S3": 36.53
+      }
+    },
+    "conformal_coverage_pct_at_90target": {
+      "S1": 90.3,
+      "S2": 62.2,
+      "S3": 63.4
+    },
+    "shap_importance_kW_m2": {
+      "Outlet Quality": 684,
+      "Pressure": 465,
+      "Heated Length": 401,
+      "Mass Flux": 223,
+      "Tube Diameter": 65
+    }
+  },
+  "key_findings": [
+    "XGBoost matches Grosfilley 2024 SOTA on S1 (12.4% RMSE)",
+    "MLP catastrophically fails on S3 extrapolation (R²=0.04)",
+    "BNN most robust on extrapolation (R²=0.69)",
+    "Conformal Prediction coverage breaks: 90% → 63% under shift",
+    "Median error grows 2.5-2.7× under distribution shift",
+    "Outlet Quality dominates feature importance",
+    "No single model dominates all splits"
+  ]
+}

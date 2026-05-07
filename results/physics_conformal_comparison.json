@@ -1,0 +1,52 @@
+{
+  "seed": 42,
+  "target_coverage": 0.9,
+  "results": {
+    "Baseline_5feat": {
+      "S1_random": {
+        "q_hat": 236.89723205566406,
+        "empirical_coverage": 0.9080553295362083,
+        "target_coverage": 0.9,
+        "failures": 339,
+        "n_test": 3687
+      },
+      "S2_holdout_refs": {
+        "q_hat": 233.5464630126953,
+        "empirical_coverage": 0.8170774036792781,
+        "target_coverage": 0.9,
+        "failures": 527,
+        "n_test": 2881
+      },
+      "S3_high_P": {
+        "q_hat": 235.30218505859375,
+        "empirical_coverage": 0.6342907906425822,
+        "target_coverage": 0.9,
+        "failures": 1235,
+        "n_test": 3377
+      }
+    },
+    "Physics_8feat": {
+      "S1_random": {
+        "q_hat": 233.70448303222656,
+        "empirical_coverage": 0.9107675617032818,
+        "target_coverage": 0.9,
+        "failures": 329,
+        "n_test": 3687
+      },
+      "S2_holdout_refs": {
+        "q_hat": 230.29794311523438,
+        "empirical_coverage": 0.816036098576883,
+        "target_coverage": 0.9,
+        "failures": 530,
+        "n_test": 2881
+      },
+      "S3_high_P": {
+        "q_hat": 233.2631072998047,
+        "empirical_coverage": 0.6671602013621558,
+        "target_coverage": 0.9,
+        "failures": 1124,
+        "n_test": 3377
+      }
+    }
+  }
+}
