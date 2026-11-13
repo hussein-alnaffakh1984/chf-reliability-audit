@@ -114,4 +114,4 @@ We thank the OECD/NEA AI/ML Task Force for releasing the Phase-1 CHF benchmark, 
 
 ## 📧 Contact
 
-For questions, please open an issue or contact: [corresponding-author@email]
+For questions, please open an issue or contact: Hussein Ali Hussein Al-Naffakh (corresponding author), hussein.alnaffakh@alkafeel.edu.iq
