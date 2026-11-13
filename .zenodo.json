@@ -1,0 +1,35 @@
+{
+  "title": "CHF Reliability Audit",
+  "upload_type": "software",
+  "access_right": "open",
+  "description": "<p>Source code and reproducibility materials accompanying the article: Reliability of machine learning methods for prediction of critical heat flux: an OECD/NEA benchmark study. <em>Kerntechnik</em>, 2026 (in press). https://doi.org/10.1515/kern-2026-0078</p><p>If you use this software, please cite the article.</p>",
+  "creators": [
+    {
+      "name": "Al-Naffakh, Hussein Ali Hussein",
+      "affiliation": "University of Alkafeel, Najaf, Iraq",
+      "orcid": "0000-0002-4775-8818"
+    },
+    {
+      "name": "Radhi, Ahmed Dheyaa"
+    },
+    {
+      "name": "Abood, Mohammad Malik"
+    },
+    {
+      "name": "Majeed, Fouad A."
+    },
+    {
+      "name": "Khalf, Ayaat Maan"
+    },
+    {
+      "name": "Ghazali, Rozaida"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://doi.org/10.1515/kern-2026-0078",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-article"
+    }
+  ]
+}
