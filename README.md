@@ -1,7 +1,6 @@
 # Reliability of Machine Learning Predictions for Critical Heat Flux
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.PLACEHOLDER.svg)](https://doi.org/10.5281/zenodo.PLACEHOLDER)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 > **An empirical study of generalization, calibration, and reproducibility on the OECD/NEA Phase-1 Critical Heat Flux benchmark.**
@@ -10,7 +9,7 @@ This repository contains all code, data references, and trained models for our p
 
 ## 📰 Paper
 
-> [Author 1], [Author 2], [Author 3], [Supervising Author]. (2026). *Reliability of Machine Learning Predictions for Critical Heat Flux: An Empirical Study of Generalization, Calibration, and Reproducibility on the OECD/NEA Phase-1 Benchmark*. Annals of Nuclear Energy. [DOI: pending]
+> Al-Naffakh, H.A.H., Radhi, A.D., Abood, M.M., Majeed, F.A., Khalf, A.M., & Ghazali, R. (2026). Reliability of machine learning methods for prediction of critical heat flux: an OECD/NEA benchmark study. *Kerntechnik*, in press. https://doi.org/10.1515/kern-2026-0078
 
 ## 🎯 Key Findings
 
@@ -94,14 +93,13 @@ The OECD/NEA Phase-1 CHF benchmark dataset (24,579 measurements from 60 referenc
 If you use this code or our findings in your research, please cite:
 
 ```bibtex
-@article{chf_reliability_2026,
-  title={Reliability of Machine Learning Predictions for Critical Heat Flux:
-         An Empirical Study of Generalization, Calibration, and Reproducibility
-         on the OECD/NEA Phase-1 Benchmark},
-  author={[Author 1] and [Author 2] and [Author 3] and [Supervising Author]},
-  journal={Annals of Nuclear Energy},
-  year={2026},
-  doi={10.xxxx/annucene.2026.xxxxx}
+@article{AlNaffakh2026CHF,
+  title   = {Reliability of machine learning methods for prediction of critical heat flux: an OECD/NEA benchmark study},
+  author  = {Al-Naffakh, Hussein Ali Hussein and Radhi, Ahmed Dheyaa and Abood, Mohammad Malik and Majeed, Fouad A. and Khalf, Ayaat Maan and Ghazali, Rozaida},
+  journal = {Kerntechnik},
+  year    = {2026},
+  note    = {In press},
+  doi     = {10.1515/kern-2026-0078}
 }
 ```
 
